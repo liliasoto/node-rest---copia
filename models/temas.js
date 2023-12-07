@@ -6,13 +6,23 @@ class TemasModel {
         return await query;
     }
 
-    static consultarNormal() {
-        let query = db('temas');
-        db.then((result) => {
-            console.log(result);
-        }).catch((reason) => {
-            conseole.error(result);
-        });
+    static async consultarPorID(id){
+        return await db('temas').where('id_tema', id);
+    }
+
+    static agregarTema(nombre, res){
+        if(!nombre){
+            return res.json({success:false, message: 'Un error ha ocurrido, porfavor intente más tarde'});
+        }
+        db('temas')
+        .insert({nombre})
+        .catch((err)=>{
+            console.log(err);
+            return res.json({
+                success:false, 
+                message: 'Un error ha ocurrido, por favo intente más tarda'
+            });
+        })
     }
     
 }
