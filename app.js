@@ -1,3 +1,10 @@
+/*
+--EQUIPO
+- Lilia Soto Llamas 20460040
+- Max Yahir Rodríguez González 20460278
+- Ramses Patiño Cortés 20460181
+*/
+
 const express = require('express');
 const app = express();
 const puerto = 80;
